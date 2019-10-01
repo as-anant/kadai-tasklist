@@ -1,8 +1,12 @@
+<% if logged_in? %>
+  <p><%= current_user.name %>としてログイン済</p>
+  <%= link_to 'Log out', logout_path, method: :delete %>
 
-
-<div class="center">
-  <div class="text-center">
-    <h1>Welcome to the Tasklist</h1>
-    <%= link_to 'Sign Up Now!', signup_path %>
+<% else %>
+  <div class="center">
+    <div class="text-center">
+      <h1>Welcome to the Tasklist</h1>
+      <%= link_to 'Log in', login_path %> or <%= link_to 'Sign Up Now!', signup_path %>
+    </div>
   </div>
-</div>
+<% end %>
